@@ -87,6 +87,8 @@ var gameTableButtonSectionElement;							//The gameTableButtonSection object ass
 
 var bottomToolBarElement;									//The bottomToolBar object associated with HTML bottomToolBar div element 		
 var pointsElement;											//The points object associated with HTML points input element
+var scenaryInputElement;									//The scenaryInput object associated with HTML scenary input box element
+var roleInputElement;										//The roleInput object associated with HTML role input box element
 var resetGameButtonElement;									//The resetGameButton object associated with HTML resetGameButton button element inside the bottomToolBar div element 
 
 var menuSectionElement;										//The menuSection object associated with HTML menuSection div element 
@@ -94,7 +96,6 @@ var menuOverlayElement;										//The menu's overlay object assocciated with HT
 var menuElement;											//The menu object associated with HTML menu div element inside the menuSection div element		
 var logoImageElement;										//The logoImage object associated with HTML logo img element inside the menuTitleSection div of the HTML menu element 
 	
-
 
 /* This Function calls all the initialization functions for:
  * The linking of javascript variables to their HTML associated elements
@@ -138,6 +139,8 @@ function variablesInit() {
 	
 	bottomToolBarElement = document.getElementById("bottomToolBar");					//Stores the bottomToolBar HTML element inside the bottomToolBarElement javascript variable for a faster access later
 	pointsElement = document.getElementById("points");									//Stores the points HTML element inside the pointsElement javascript variable for a faster access later
+	scenaryInputElement = document.getElementById("scenaryInput");						//Stores the scenaryInput HTML element inside the scenaryInputElement javascript variable for a faster access later
+	roleInputElement = document.getElementById("roleInput");							//Stores the roleInput HTML element inside the roleInputElement javascript variable for a faster access later
 	resetGameButtonElement = document.getElementById("resetGameButton");				//Stores the resetGameButton HTML element inside the resetGameButtonElement javascript variable for a faster access later
 	
 	menuSectionElement = document.getElementById("menuSection");						//Stores the menuSection HTML element inside the menuSectionElement javascript variable for a faster access later
@@ -160,7 +163,7 @@ function gameTableArrayInit() {
 
 /* This Function add all the Events handlers to the corresponding javascript variables assocciated to the corresponding HTML element */
 function gameHandlersInit() {		
-	window.addEventListener("resize",resetHeight);																		//Resets the height whenever the window's resized
+	window.addEventListener("resize", resetHeight);																				//Resets the height whenever the window's resized
 	
 	document.addEventListener("contextmenu", event => event.preventDefault(), {passive:false});									//Prevents the use of the Right-Click contextmenu on the HTML document 
 	documentBodyElement.addEventListener("selectstart", event => event.preventDefault(), {passive: false});						//Prevens the user to select any documentBodyElement (except text inside the inputBoxes) when dragging the mouse over
@@ -182,6 +185,9 @@ function gameHandlersInit() {
 	pointsElement.addEventListener("touchstart", touchStartInitialization, {passive: false});									//Calls touchStartInitialization when pointsElement is first touched 
 	pointsElement.addEventListener("touchmove", event => updateOnTouchScroll(event, 1), {passive: false});						//Calls updateOnTouchScroll with the actual scrolling direction when the pointsElement is scrolled with the mouse wheel
 	
+	scenaryInputElement.addEventListener("input", checkScenaryInput);
+	roleInputElement.addEventListener("input", checkRoleInput);
+	
 	resetGameButtonElement.addEventListener("click", resetGame, {passive:true});												//Calls resetGame when the resetGameButtonElement is clicked
 	endGameButtonElement.addEventListener("click", endGame, {passive: true});													//Calls endGame when the endGameButtonElement is clicked
 }
@@ -192,26 +198,30 @@ function gameHandlersInit() {
  * 3) If needed a event handler is added to the javascript variable associated the HTML img element
  */
 function imagesInit() {
-	infoImageElement.src = "./images/info.jpg";							//The source of the HTML image associated with the infoImageElement javascript variable is set 
+	infoImageElement.src = "./images/info.jpg";																		//The source of the HTML image associated with the infoImageElement javascript variable is set 
 	infoImageElement.alt = "Info";																					//The alternative text of the HTML image associated with the infoImageElement javascript variable is set
 	
 	logoImageElement = document.createElement("img");																//The HTML img element associated with the logoImageElement javascript variable is created 
-	logoImageElement.src = "./images/spylogo.jpg";					//The source of the HTML image associated with the logoImageElement javascript variable is set 
+	logoImageElement.src = "./images/spylogo.jpg";																	//The source of the HTML image associated with the logoImageElement javascript variable is set 
 	logoImageElement.setAttribute("id", "logo");																	//The HTML img element assocciated with the logoImageElement is given an id attribute 
 	logoImageElement.alt = "Spyfall";																				//The alternative text of the HTML image associated with the logoImageElement javascript variable is set
 	
-	timerImageElement.src = "./images/timer.jpg";							//The source of the HTML image associated with the timerImageElement javascript variable is set 
+	timerImageElement.src = "./images/timer.jpg";																	//The source of the HTML image associated with the timerImageElement javascript variable is set 
 	timerImageElement.alt = "Timer";																				//The alternative text of the HTML image associated with the timerImageElement javascript variable is set
-	timerImageElement.addEventListener("click", rewindTimer, {passive:true});										//Calls rewindTimer when the timerImageElement is clicked 
+	timerImageElement.addEventListener("mousedown", event => {
+		if(event.button == 1)
+			showMessage("EASTER EGG", "Il Tempo è denaro, non sprecarlo !");
+		rewindTimer();
+	}, {passive:true});																								//Calls rewindTimer when the timerImageElement is clicked 
 	
 	timerPlayButtonElement = document.createElement("img");															//The HTML img element associated with the timerPlayButtonElement javascript variable is created 
-	timerPlayButtonElement.src = "./images/playButton.jpg";								//The source of the HTML image associated with the timerPlayButtonElement javascript variable is set 
+	timerPlayButtonElement.src = "./images/playButton.jpg";															//The source of the HTML image associated with the timerPlayButtonElement javascript variable is set 
 	timerPlayButtonElement.setAttribute("id", "timerButton");														//It's ok to set the same ID as timerPauseButtonElement because they'll never be in HTML document at the same time
 	timerPlayButtonElement.alt = "Play";																			//The alternative text of the HTML image associated with the timerPlayButtonElement javascript variable is set
 	timerPlayButtonElement.addEventListener("click", changeTimerState, {passive:true});								//Calls changeTimerState when the timerPlayButtonElement is clicked 
 	
 	timerPauseButtonElement = document.createElement("img");														//The HTML img element associated with the timerPauseButtonElement javascript variable is created 
-	timerPauseButtonElement.src = "./images/pauseButton.jpg";							//The source of the HTML image associated with the timerPauseButtonElement javascript variable is set 
+	timerPauseButtonElement.src = "./images/pauseButton.jpg";														//The source of the HTML image associated with the timerPauseButtonElement javascript variable is set 
 	timerPauseButtonElement.setAttribute("id", "timerButton");														//It's ok to set the same ID as timerPlayButtonElement because they'll never be in HTML document at the same time
 	timerPauseButtonElement.alt = "Pause";																			//The alternative text of the HTML image associated with the timerPauseButtonElement javascript variable is set
 	timerPauseButtonElement.addEventListener("click", changeTimerState, {passive:true});							//Calls changeTimerState when the timerPauseButtonElement is clicked 						
@@ -280,7 +290,12 @@ function createGameTable(title) {
 function showRules() {
 	let titleSection = logoImageElement;
 	titleSection.style.height = "6em";	
-	titleSection.addEventListener("click", event => window.open("https://spyfall.adrianocola.com/"), {passive:true});		//Opens the actual game page in a new tab when the logoImageElement is clicked
+	titleSection.addEventListener("mousedown", event => {
+		if(event.button == 0)
+			window.open("https://spyfall.adrianocola.com/");																		//Opens the actual game page in a new tab when the logoImageElement is clicked with the left mouse button
+		else if(event.button == 1) 
+			window.open("https://cristiandavideconte.github.io/myPersonalWebPage/");												//Opens my website in a new tab when the logoImageElement is clicked with the middle mouse button
+	}, {passive:true});		
 	
 	let content = document.createElement("div");
 	for(const line of gameRulesHTMLElements)
@@ -906,7 +921,8 @@ function changeVariableDown(id) {
 		if(points > 0) {										//If the points are <= 0 there's no need to do anything
 			points--;											//The javascript points variable is decremented by 1
 			pointsElement.value = points;						//The HTML points input field is updated with the new value
-		}    
+		} else  
+			showMessage("EASTER EGG", "Contali meglio...");
 		return; 												//There's no need to check other options because the HTML elements' ids are unique 
 	}
 
@@ -921,3 +937,77 @@ function changeVariableDown(id) {
 		return;													//There's no need to check other options because the HTML elements' ids are unique 
 	}
 }				
+
+function checkScenaryInput() {
+	if(scenaryInputElement.value == "Casa di Ana") {
+		showMessage("EASTER EGG", "Qualcuno ha detto festa? &#127881");
+		return;
+	}
+	
+	if(scenaryInputElement.value == "Casa di Daniel") {
+		showMessage("EASTER EGG", "Relax & Chill &#128083");
+		return;
+	}
+	
+	if(scenaryInputElement.value == "Casa di Mike") {
+		showMessage("EASTER EGG", "Prepara il barbeque &#128527");
+		return;
+	}	
+	
+	if(scenaryInputElement.value == "Casa di Sara") {
+		showMessage("EASTER EGG", "Ti vanno Pizza, Risiko e Tabu ? &#128523");
+		return;
+	}
+	
+	if(scenaryInputElement.value == "Casa di Pietro") {
+		showMessage("EASTER EGG", "Occhio al cane, cercerà di suicidarsi per le scale &#129300");
+		return;
+	}
+	
+	if(scenaryInputElement.value == "Casa di Lollo") {
+		showMessage("EASTER EGG", "Non far scappare la Lola &#128054");
+		return;
+	}
+	
+	if(scenaryInputElement.value == "Casa di Cri") {
+		showMessage("EASTER EGG", "Di Sua Maestà volevi dire &#129332");
+		return;
+	}
+}
+
+function checkRoleInput() {
+	if(roleInputElement.value == "Ana"){
+		window.open("https://it.wikipedia.org/wiki/Ipersonnia");
+		return;
+	}
+	
+	if(roleInputElement.value == "Daniel"){
+		window.open("https://it.wikipedia.org/wiki/Afasia");
+		return;
+	}
+	
+	if(roleInputElement.value == "Mike"){
+		window.open("https://it.wikipedia.org/wiki/Alopecia_androgenetica");
+		return;
+	}
+	
+	if(roleInputElement.value == "Sara"){
+		window.open("https://it.wikipedia.org/wiki/Nanismo");
+		return;
+	}
+	
+	if(roleInputElement.value == "Pietro" || roleInputElement.value == "Gay"){
+		window.open("https://it.wikipedia.org/wiki/Omosessualit%C3%A0");
+		return;
+	}
+	
+	if(roleInputElement.value == "Lollo"){
+		window.open("https://it.wikipedia.org/wiki/Paranoia");
+		return;
+	}
+	
+	if(roleInputElement.value == "Cri"){
+		window.open("https://it.wikipedia.org/wiki/Disturbo_narcisistico_di_personalit%C3%A0");
+		return;
+	}
+}
