@@ -1,0 +1,440 @@
+@keyframes increaseSize {
+	from {
+		transform: scale3d(0, 0, 0);
+	}
+}
+
+@keyframes slideFromTop {
+	from {
+		transform: translate3d(0, -15vh, 0);
+	}
+}
+
+@keyframes slideFromBottom {
+	from {
+		transform: translate3d(0, 15vh, 0);
+	}
+}
+
+@keyframes slideFromBottomV2 {
+	from {
+		opacity: 50%;
+		transform: translate3d(-50%, 100vh, 0);
+	}
+}
+
+@keyframes slideFromLeft {
+	from {
+		transform: translate3d(-200vw, 0, 0);
+	}
+}
+
+@keyframes slideToRight {
+	to {
+		transform: translate3d(200vw, 0, 0);
+	}
+}
+
+@keyframes fadeToDark {
+	from {
+		opacity: 0;	
+	}
+}
+
+
+body::-webkit-scrollbar {
+	display: none;
+	-ms-overflow-style: none;
+}
+
+	
+* {
+	color: white;	
+	font-family: 'Baloo Chettan 2';	
+	font-weight: bold;		
+	text-align: center;	
+	outline: 0;	
+	border: none;						
+	border-radius: 0.7em;
+	transition-duration: 0.3s;
+}
+
+html, body {
+	margin:0;
+	overflow: auto;
+	height: 100%;
+}	
+			
+body {
+	overflow: hidden;	
+	font-size: 1.7vmin;
+	background-color: #211f27;	
+	scrollbar-width: none;									/* Firefox */	
+}
+
+
+		
+#infoImage, #logo {
+	height: 4em;
+	border-radius: 100%;  
+	opacity:0.7;
+	animation: increaseSize 0.4s;  
+}
+
+#infoImage:hover {
+	opacity: 1;
+}
+
+#infoImage:hover {
+	-webkit-transform: scale3d(1.1,1.1,1.1);
+}
+
+#infoImage:active {
+	-webkit-transform: scale3d(0.8, 0.8, 0.8);		
+}
+
+#logo {		
+	background: radial-gradient(circle, rgba(0,212,255,1) 43%, rgba(28,9,121,1) 81%, rgba(2,0,36,1) 100%);
+}
+
+#logo:hover {
+	opacity: 1;
+	-webkit-transform: scale3d(1.1,1.1,1.1) rotate3d(0,0,1,360deg);
+}
+
+#logo:active {
+	-webkit-transform: scale3d(0.9,0.9,0.9) rotate3d(0,0,1,360deg);	
+}
+
+
+#game {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	display: flex;
+	flex-direction:column;
+	height: calc(100% - (4em + 0.5em + 0.5em + 1vh) - (120 / 100 * 1.7vmin + 0.5em + 0.5em + 0.5em + 0.5em + 1vh));	/* bodyHeight - space occupied by the topToolBar - space occupied by the bottomToolBar */
+	margin-top: calc(4em + 0.5em + 0.5em + 1vh);																	/* Logo Height + topToolBar padding-top + topToolBar padding-bottom + topToolBar margin-top */
+	margin-bottom: calc(120 / 100 * 1.7vmin + 0.5em + 0.5em + 0.5em + 0.5em + 1vh);									/* Inputs FontSize + Inputs padding-top + Inputs padding-bottom + bottomToolBar padding-top + bottomToolBar padding-bottom + bottomToolBar margin-bottom */
+	margin-right: 1%;
+	margin-left: 1%;
+	animation: slideFromLeft 0.4s;
+	scrollbar-width: none;										/* Firefox */
+}	
+
+#game::-webkit-scrollbar {
+	display: none;
+	-ms-overflow-style: none;
+}
+
+.gameToolBar {
+	z-index: 1;
+	position: fixed;	
+	display:flex;
+	flex-direction:row;
+	align-items: center;
+	justify-content: space-between;
+	right: 1%;
+	left:1%;
+	overscroll-behavior: none;
+	padding: 0.5em;			
+	background-color: #18171C;	
+}
+
+#topToolBar {
+	top: 1%;									
+	animation: slideFromTop 0.4s;
+}
+
+#bottomToolBar {	
+	bottom: 1%;									
+	animation: slideFromBottom 0.4s;
+}
+
+.left {		
+	float: left;										
+}
+
+.center {		
+	position: absolute;	
+	top: 50%;
+	left: 50%;
+	transform: translate3d(-50%, -50%, 0);
+}
+
+.right {
+	float: right;			
+}
+
+
+		
+button {
+	margin-right: 0.3em;
+}
+
+button:hover {		
+	-webkit-transform: scale3d(1.04,1.04,1.04);
+	opacity: 1;					
+}
+
+button:active{	
+	-webkit-transform: scale3d(0.9,0.9,0.9);
+}
+
+button::-moz-focus-inner {
+	border: 0;							/* Removes Button blue focus on firefox */
+}
+
+#resetGameButton {
+	opacity: 0.6;
+	background-color: #e46401;
+}
+
+#resetGameButton:hover {
+	opacity: 1;	
+	background-color: #fe7d1b;
+}
+
+#endGameButton {
+	opacity: 0.6;
+	background-color: #e6001f;
+}
+
+#endGameButton:hover {				
+	opacity: 1;	
+	background-color: #f2001f;
+}
+
+.modifyGameScenaryButton {
+	font-size: 300%;
+	width: 30%;
+}			
+
+		
+#timerSection {				
+	display:flex;
+	flex-direction:row;
+	align-items: center;
+	justify-content: space-between;		
+	opacity: 0.7;
+	background-color: #3333ff;	
+}
+
+#timerSection:hover {	
+	opacity:1;
+}
+			
+#timerSection > img {	
+	border-radius: 50%;
+}
+
+#timerSection > * {
+	height: 1.5em;
+	padding: 0.5em;
+	margin: 0.5em;		
+	opacity: 0.85;
+}
+
+#timerSection > *:hover {	
+	opacity: 1;
+	-webkit-transform: scale3d(1.04, 1.04, 1.04);
+	background-color: #2929a3;
+}
+
+#timerSection > *:active {	
+	-webkit-transform: scale3d(0.9, 0.9, 0.9);
+}
+		
+#timerImage {
+	transition-duration: 0.7s;
+}
+
+#timerImage:hover {
+	-webkit-transform: rotate3d(0,0,1,360deg);
+}	
+
+#timerImage:active {	
+	-webkit-transform: scale3d(0.9, 0.9, 0.9);
+}
+		
+#timer {
+	margin: 0em;		
+}
+
+
+.menu {
+	z-index: 3;
+	position: fixed;					
+	display:flex;
+	flex-direction:column;
+	align-items: center;
+	justify-content: center;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate3d(-50%, -50%, 0);	
+	animation: slideFromBottomV2 0.4s;
+	background-color: #211f27;
+}
+
+.menuTitleSection {
+	display:flex;
+	flex-direction:column;
+	align-items: center;
+	width: 100%;
+}
+
+.menuContentSection {	
+	width: 37em;
+	max-height: 35em;
+	overflow-y: scroll;
+	overscroll-behavior: none;
+	scrollbar-width: none;								/* Firefox */
+}
+			
+.menuContentSection::-webkit-scrollbar {
+	display: none;
+	-ms-overflow-style: none;
+}
+
+.menuContentSection > div {
+	display:flex;
+	flex-direction:column;
+	align-items: center;
+}
+
+.menuContentSection > div > * {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.menuButtonSection {	
+	display:flex;
+	justify-content: center;
+	width: 100%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+	
+.menuButton {		
+	min-width: 20%;
+	margin-left: 2%;
+	margin-right: 2%;
+	background-color: #0080ff;
+}
+
+.menuButton:hover {
+	background-color: #1a8cff;
+}
+
+.backgroundContent {
+	pointer-events: none;	
+}
+
+.popUpOverlay {
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.95);
+	animation: fadeToDark 0.4s;
+}
+
+.gameBoxNotSelected {
+	background-color: #02b15f;
+}
+
+.gameBoxNotSelected:hover {
+	background-color: #017e44;
+}
+
+.gameBoxSelected {
+	opacity: 0.5;
+	background-color: #e6001f;
+}
+
+.gameBoxSelected:hover {
+	background-color: #f2001f;		
+}
+
+table {
+	table-layout: fixed ;						/* This will force them to be all the same width and occupy all the available space */
+	width: 100%;
+	border-spacing: 1em;
+	margin-bottom: 5%;
+}
+
+td {  
+	font-weight: bold;
+	font-size: 150%;
+	height: 5em;	 
+	max-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis; 
+}
+
+label {
+	font-weight: bold;
+	font-size: 130%;
+}
+
+td:hover {
+	-webkit-transform: scale3d(1.04,1.04,1.04);
+	opacity: 1;	
+}
+
+td:active {	
+	-webkit-transform: scale3d(0.9,0.9,0.9);
+}
+
+input, button {	
+	font-size: 120%;	
+	overflow: hidden;	
+	margin-left: 0.3em;		
+	padding: 0.5em;			
+	opacity: 0.7;
+	background-color: #3333ff;	
+}	
+
+input:hover, input:focus {
+	opacity: 1;	
+	-webkit-transform: scale3d(1.04,1.04,1.04);
+}
+
+h1 {
+	font-family: 'Oldenburg', cursive;
+	font-size: 3em;
+}
+
+img {
+	-webkit-user-drag: none;
+	-khtml-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
+	user-drag: none;
+}
+
+
+/* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder { 
+	opacity: 1; 		
+	color: #d1d1e0;		
+}
+
+/* Internet Explorer 10-11 */
+:-ms-input-placeholder { 
+	color: #d1d1e0;
+}
+
+/* Microsoft Edge */
+::-ms-input-placeholder { 
+	color: #d1d1e0;
+}
+		
+@media only screen and (max-width: 1080px) {				
+	label {
+		display: none;
+	}
+}

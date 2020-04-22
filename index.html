@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>		
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="shortcut icon" href="./images/spylogo.jpg">
+		<link rel="stylesheet" type="text/css" href="./css/spyfall.css">
+		<link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Oldenburg&display=swap" rel="stylesheet">	
+		<script src="./js/spyfall.js"></script>
+		
+		<title>Spyfall</title>
+	</head>
+
+	<body unselectable = "on" onload = "init()">
+		<div id = "menuSection"></div>
+		<div id = "topToolBar" class = "gameToolBar">	
+			<img class = "left" id = "infoImage"/>
+			<div class = "center"> 
+				<form id = "timerSection">		
+					<img id = "timerImage"/>
+					<input type = "text" id = "timer" value = 1:00 size = 1 readonly>
+				</form>
+			</div>
+			<button type = "button" id = "endGameButton" class = "right">Termina Partita</button>    
+		</div>	
+		<div id = "game"></div>
+		<div id = "bottomToolBar" class = "gameToolBar">
+			<div class = "left">
+				<label>Punti:</label>
+				<input type = "text" id = "points" value = 0 size = 1 readonly>	
+				<input type = "text" class = "inputBox" placeholder = "Scenario">
+				<input type =" text" class = "inputBox" placeholder = "Ruolo">
+			</div>
+			<button type = "button" id = "resetGameButton" class = "right">Nuovo Round</button>     
+		</div>		
+	</body>
+</html>
