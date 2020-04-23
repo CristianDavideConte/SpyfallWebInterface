@@ -49,7 +49,6 @@
 
 body::-webkit-scrollbar {
 	display: none;
-	-ms-overflow-style: none;
 }
 
 	
@@ -68,6 +67,7 @@ html, body {
 	margin:0;
 	overflow: auto;
 	height: 100%;
+	-ms-overflow-style: none;
 }	
 			
 body {
