@@ -117,6 +117,7 @@ function init() {
 	imagesInit();												//The images are loaded last for performance
 	
 	resetHeight();												//Initially sets the height (fixes mobile top search bar behavior)
+	console.log(detectBrowser());
 }
 
 /* This function initializes all the game's variables that are associated with an HTML element 
@@ -937,6 +938,42 @@ function changeVariableDown(id) {
 		return;													//There's no need to check other options because the HTML elements' ids are unique 
 	}
 }				
+
+function detectBrowser() {
+	
+  // CHROME
+  if (navigator.userAgent.indexOf("Chrome") != -1 ) {
+    return "Google Chrome";
+  }
+  // FIREFOX
+  else if (navigator.userAgent.indexOf("Firefox") != -1 ) {
+    return "Mozilla Firefox";
+  }
+  // INTERNET EXPLORER
+  else if (navigator.userAgent.indexOf("MSIE") != -1 ) {
+    return "Internet Exploder";
+  }
+  // EDGE
+  else if (navigator.userAgent.indexOf("Edge") != -1 ) {
+    return "Internet Exploder";
+  }
+  // SAFARI
+  else if (navigator.userAgent.indexOf("Safari") != -1 ) {
+    return "Safari";
+  }
+  // OPERA
+  else if (navigator.userAgent.indexOf("Opera") != -1 ) {
+    return "Opera";
+  }
+  // YANDEX BROWSER
+  else if (navigator.userAgent.indexOf("YaBrowser") != -1 ) {
+    return "YaBrowser";
+  }
+  // OTHERS
+  else {
+    return "Others";
+  }	
+}
 
 function checkScenaryInput() {
 	if(scenaryInputElement.value == "Casa di Ana") {
