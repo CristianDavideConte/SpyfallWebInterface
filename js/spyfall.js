@@ -117,7 +117,6 @@ function init() {
 	imagesInit();												//The images are loaded last for performance
 	
 	resetHeight();												//Initially sets the height (fixes mobile top search bar behavior)
-	console.log(detectBrowser());
 }
 
 /* This function initializes all the game's variables that are associated with an HTML element 
@@ -329,10 +328,11 @@ function showScenaryNotChosenMenu() {
 					menuTable, 	
 					[getButton("confirmButton", "menuButton", "Conferma", () => {
 																				confirmButtonHandler();
-																				gameElement.scrollTo({
-																				top: 0,
-																				behavior: "smooth"
-																			});	
+																				if(!isBrowserEdge()) 
+																					gameElement.scrollTo({
+																						top: 0,
+																						behavior: "smooth"
+																					});	
 					}), 
 					 getButton("selectAllButton", "menuButton", "Seleziona Tutti", function () {
 																					let cells = new Set();
@@ -344,10 +344,11 @@ function showScenaryNotChosenMenu() {
 					 ),
 					getButton("cancelButton", "menuButton", "Annulla", () => {
 																				removeMenuAndRestoreMainPage();
-																				gameElement.scrollTo({
-																				top: gameElement.scrollHeight,
-																				behavior: "smooth"
-																			});	
+																				if(!isBrowserEdge()) 
+																					gameElement.scrollTo({
+																						top: gameElement.scrollHeight,
+																						behavior: "smooth"
+																					});	
 					})],
 					new Map([["keydown", (event) => {	event.stopPropagation();
 					
@@ -377,10 +378,11 @@ function showScenaryChosenMenu() {
 					menuTable,
 					[getButton("confirmButton", "menuButton", "Conferma", () => {
 																				confirmButtonHandler();
-																				gameElement.scrollTo({
-																				top: 0,
-																				behavior: "smooth"
-																			});	
+																				if(!isBrowserEdge()) 
+																					gameElement.scrollTo({
+																						top: 0,
+																						behavior: "smooth"
+																					});	
 					}), 
 					 getButton("selectAllButton", "menuButton", "Seleziona Tutti", function () {
 																					let cells = new Set();
@@ -392,10 +394,11 @@ function showScenaryChosenMenu() {
 					 ),
 					getButton("cancelButton", "menuButton", "Annulla", () => {
 																				removeMenuAndRestoreMainPage();
-																				gameElement.scrollTo({
-																				top: gameElement.scrollHeight,
-																				behavior: "smooth"
-																			});	
+																				if(!isBrowserEdge()) 
+																					gameElement.scrollTo({
+																						top: gameElement.scrollHeight,
+																						behavior: "smooth"
+																					});	
 					})],
 					new Map([["keydown", (event) => {	event.stopPropagation();
 														
@@ -627,24 +630,30 @@ function removeMenuAndRestoreMainPage() {
 		changeTimerState();																					//The timer state is restored
 	}
 	
-	setTimeout(() => menuSection.innerHTML = "", 350);														//Remove the currently displayed popUpMenu from HTML menu div after it has animated
-			
+				
 	menuOverlayElement.removeEventListener("click", removeMenuAndRestoreMainPage);							//Prevents the user to trigger this function twice by clicking the menu overlay again
 	menuElement.removeChild(menuElement.lastChild);															//Prevents the user to trigger this function twice by clicking the menu buttons again
 	
-	menuOverlayElement.animate([																			//Animates the menu overlay which darkens the background contents: its a fade out
-			{offset: 0,  opacity:1},																		//From full visibility
-			{offset: 1, opacity:0}																			//To not being visible
-	], { 
-	  duration: 400,																						//The transition lasts 400milliseconds
-	});
 	
-	menuElement.animate([																					//Animates the menuElement which is assocciated to the menu itself: its a slide down transition
-			{offset: 0, "transform": "translate3d(-50%, 0, 0)"},											//From the current position (the 50% is there because of the chosen css way to put the menu in the center of the screen)
-			{offset: 1, "transform": "translate3d(-50%, 200vh, 0)"}											//Slides downward (vertically, y movement only) out of the screen
-	], { 
-	  duration: 400,																						//The transition lasts 400milliseconds
-	});
+	if (!isBrowserEdge()) {
+		setTimeout(() => menuSection.innerHTML = "", 350);														//Remove the currently displayed popUpMenu from HTML menu div after it has animated
+
+		menuOverlayElement.animate([																			//Animates the menu overlay which darkens the background contents: its a fade out
+				{offset: 0,  opacity:1},																		//From full visibility
+				{offset: 1, opacity:0}																			//To not being visible
+		], { 
+		  duration: 400,																						//The transition lasts 400milliseconds
+		});
+		
+		menuElement.animate([																					//Animates the menuElement which is assocciated to the menu itself: its a slide down transition
+				{offset: 0, "transform": "translate3d(-50%, 0, 0)"},											//From the current position (the 50% is there because of the chosen css way to put the menu in the center of the screen)
+				{offset: 1, "transform": "translate3d(-50%, 200vh, 0)"}											//Slides downward (vertically, y movement only) out of the screen
+		], { 
+		  duration: 400,																						//The transition lasts 400milliseconds
+		});
+	} else {
+		menuSection.innerHTML = "";	
+	}
 	
 	let backgroundContentElements = document.getElementsByClassName("backgroundContent");					//Stores the background contents collection inside a variable for a faster access later
 	while(backgroundContentElements.length)																	//For each background content
@@ -719,21 +728,10 @@ function resetGame() {
 /* This Function resets the HTML game element to its original state */
 function endGame() {
 	endGameButtonElement.removeEventListener("click", endGame);													//Prevents the user to trigger this function twice by clicking the endGameButton again
-	setTimeout(() => endGameButtonElement.addEventListener("click", endGame,{passive: true}), 400)				//The endGameButton behavior (when clicked) is restored	after the transition
 	
 	const gameTableTitle = document.createElement("h1");														//The new gameTableTitle HTML h1 element is created							
 	gameTableTitle.innerHTML = "Scenari";																		//The new gameTableTitle innerHTML is set 
-	setTimeout(() => createGameTable(gameTableTitle), 200);														//After waiting the first half of the transition the new gameTable is created by calling the createGameTable and passing it the just created title
 	
-	gameElement.animate([																						//Animates the old gameTable (after half of the transition the old gameTable will be swapped with the new one): 3d version uses the GPU instead of the CPU
-			{offset: 0.0, "transform": "translate3d(0, 0, 0)", opacity:1},										//Starting position and opacity
-			{offset: 0.5, "transform": "translate3d(200vw,0, 0)", opacity:0},									//After half the transition time the gameTable will be translated to the right (out of the window) where the new gameTable is created
-			{offset: 0.51, "transform": "translate3d(-100vw, 0, 0)", opacity:0},								//It gets moved to the left of the visible window (but keeping the opacity to 0) so that it looks the new gameTable was always there					
-			{offset: 1, "transform": "translate3d(0, 0, 0)", opacity:1}											//The new gameTable is moved back to the original gameTable position and its opacity is increased to 1 so that it can be visible again
-	], { 
-	  duration: 400,																							//The transition lasts 400milliseconds
-	});
-			
 	variablesInit();																							//Calls the variablesInit to reset all the game javascript variables back to the default state
 	gameTableArrayInit();																						//Calls the gameTableArrayInit to reset the gamePlayableScenary and the gameNotPlayableScenary sets back to the default state		
 
@@ -743,6 +741,22 @@ function endGame() {
 	resetInputs();																								//Calls resetInputs to clear all inputBox HTML elements				
 	resetVariable("timer");																						//Calls resetVariable passing the timer id so that the HTML timer element is set back to the default state
 	resetVariable("points");																					//Calls resetVariable passing the points id so that the HTML points element is set back to the default state
+
+	if (!isBrowserEdge()) {
+		setTimeout(() => endGameButtonElement.addEventListener("click", endGame,{passive: true}), 400)				//The endGameButton behavior (when clicked) is restored	after the transition
+		setTimeout(() => createGameTable(gameTableTitle), 200);														//After waiting the first half of the transition the new gameTable is created by calling the createGameTable and passing it the just created title
+		gameElement.animate([																						//Animates the old gameTable (after half of the transition the old gameTable will be swapped with the new one): 3d version uses the GPU instead of the CPU
+				{offset: 0.0, "transform": "translate3d(0, 0, 0)", opacity:1},										//Starting position and opacity
+				{offset: 0.5, "transform": "translate3d(200vw,0, 0)", opacity:0},									//After half the transition time the gameTable will be translated to the right (out of the window) where the new gameTable is created
+				{offset: 0.51, "transform": "translate3d(-100vw, 0, 0)", opacity:0},								//It gets moved to the left of the visible window (but keeping the opacity to 0) so that it looks the new gameTable was always there					
+				{offset: 1, "transform": "translate3d(0, 0, 0)", opacity:1}											//The new gameTable is moved back to the original gameTable position and its opacity is increased to 1 so that it can be visible again
+		], { 
+		  duration: 400,																							//The transition lasts 400milliseconds
+		});
+	} else {
+		endGameButtonElement.addEventListener("click", endGame,{passive: true});
+		createGameTable(gameTableTitle);
+	}
 }
 
 /* This Function updates:
@@ -939,40 +953,10 @@ function changeVariableDown(id) {
 	}
 }				
 
-function detectBrowser() {
-	
-  // CHROME
-  if (navigator.userAgent.indexOf("Chrome") != -1 ) {
-    return "Google Chrome";
-  }
-  // FIREFOX
-  else if (navigator.userAgent.indexOf("Firefox") != -1 ) {
-    return "Mozilla Firefox";
-  }
-  // INTERNET EXPLORER
-  else if (navigator.userAgent.indexOf("MSIE") != -1 ) {
-    return "Internet Exploder";
-  }
-  // EDGE
-  else if (navigator.userAgent.indexOf("Edge") != -1 ) {
-    return "Internet Exploder";
-  }
-  // SAFARI
-  else if (navigator.userAgent.indexOf("Safari") != -1 ) {
-    return "Safari";
-  }
-  // OPERA
-  else if (navigator.userAgent.indexOf("Opera") != -1 ) {
-    return "Opera";
-  }
-  // YANDEX BROWSER
-  else if (navigator.userAgent.indexOf("YaBrowser") != -1 ) {
-    return "YaBrowser";
-  }
-  // OTHERS
-  else {
-    return "Others";
-  }	
+
+function isBrowserEdge() {
+	let chrome = navigator.userAgent.search("Chrome") == 81;
+	return chrome && navigator.userAgent.search("Edge") == 116;
 }
 
 function checkScenaryInput() {
