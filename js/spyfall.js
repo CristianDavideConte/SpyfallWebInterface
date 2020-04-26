@@ -117,6 +117,7 @@ function init() {
 	imagesInit();												//The images are loaded last for performance
 	
 	resetHeight();												//Initially sets the height (fixes mobile top search bar behavior)
+	setTimeout(() => showRules(), 400);							//After all the animations have completed the game's rules are shown to the user
 }
 
 /* This function initializes all the game's variables that are associated with an HTML element 
@@ -267,10 +268,10 @@ function updateOnTouchScroll(event, scrollingDirection) {
 /*This function creates a table inside the "game"-class element containing all the gamePlayableScenary elements */		
 function createGameTable(title) {	
 	gameTableButtonSectionElement = document.createElement("div");						
-	gameTableButtonSectionElement.setAttribute("class", "menuButtonSection");																					//If it's not the first time we create the game table																		//The gameTable's title is saved 
+	gameTableButtonSectionElement.setAttribute("class", "menuButtonSection");																		//If it's not the first time we create the game table																		//The gameTable's title is saved 
 	gameElement.innerHTML = "";	
 	
-	if(title != null) 																							//Before creating any table the game div element should empty
+	if(title != null) 																																//Before creating any table the game div element should empty
 		gameElement.appendChild(title);
 	
 	//If some scenaries have not been selected a button to add them will appear after the gameTable
@@ -629,7 +630,6 @@ function removeMenuAndRestoreMainPage() {
 		timerWasInterrupted = false;																		//The timerWasInterrupted javascript variable is set to false
 		changeTimerState();																					//The timer state is restored
 	}
-	
 				
 	menuOverlayElement.removeEventListener("click", removeMenuAndRestoreMainPage);							//Prevents the user to trigger this function twice by clicking the menu overlay again
 	menuElement.removeChild(menuElement.lastChild);															//Prevents the user to trigger this function twice by clicking the menu buttons again
