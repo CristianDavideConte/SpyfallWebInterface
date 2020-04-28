@@ -231,6 +231,7 @@ button::-moz-focus-inner {
 #timerSection > * {
 	cursor: pointer;
 	height: 1.5em;
+	width: 1.5em;
 	padding: 0.5em;
 	margin: 0.5em;		
 	opacity: 0.85;
@@ -263,7 +264,8 @@ button::-moz-focus-inner {
 }
 		
 #timer {
-	margin: 0em;		
+	margin: 0em;	
+	width: 3em;	
 }
 
 .menu {
