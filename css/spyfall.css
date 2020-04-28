@@ -1,21 +1,21 @@
 @keyframes increaseSize {
 	from {
-		-webkit-transform: scale3d(0, 0, 0) ;
-		transform: scale3d(0, 0, 0) ;
+		-webkit-transform: scale3d(0, 0, 0);
+		transform: scale3d(0, 0, 0);
 	}
 }
 
 @keyframes slideFromTop {
 	from {
-		-webkit-transform: translate3d(0, -15vh, 0) ;
-		transform: translate3d(0, -15vh, 0) ;
+		-webkit-transform: translate3d(0, -15vh, 0);
+		transform: translate3d(0, -15vh, 0);
 	}
 }
 
 @keyframes slideFromBottom {
 	from {
-		-webkit-transform: translate3d(0, 15vh, 0) ;
-		transform: translate3d(0, 15vh, 0) ;
+		-webkit-transform: translate3d(0, 15vh, 0);
+		transform: translate3d(0, 15vh, 0);
 	}
 }
 
@@ -23,21 +23,21 @@
 	from {
 		opacity: 50%;
 		-webkit-transform: translate3d(-50%, 100vh, 0);
-		transform: translate3d(-50%, 100vh, 0) ;
+		transform: translate3d(-50%, 100vh, 0);
 	}
 }
 
 @keyframes slideFromLeft {
 	from {
-		-webkit-transform: translate3d(-200vw, 0, 0) ;
-		transform: translate3d(-200vw, 0, 0) ;
+		-webkit-transform: translate3d(-200vw, 0, 0);
+		transform: translate3d(-200vw, 0, 0);
 	}
 }
 
 @keyframes slideToRight {
 	to {
-		-webkit-transform: translate3d(200vw, 0, 0) ;
-		transform: translate3d(200vw, 0, 0) ;
+		-webkit-transform: translate3d(200vw, 0, 0);
+		transform: translate3d(200vw, 0, 0);
 	}
 }
 
@@ -54,7 +54,7 @@ body::-webkit-scrollbar {
 * {
 	color: white;	
 	font-family: 'Baloo Chettan 2';	
-	font-weight: bold;		
+	font-weight: bold;		  
 	text-align: center;	
 	outline: 0;	
 	border: none;						
@@ -87,13 +87,13 @@ body {
 }
 
 #infoImage:hover {
-	-webkit-transform: scale3d(1.1,1.1,1.1) ;
-	transform: scale3d(1.1,1.1,1.1) ;
+	-webkit-transform: scale3d(1.1,1.1,1.1);
+	transform: scale3d(1.1,1.1,1.1);
 }
 
 #infoImage:active {
 	-webkit-transform: scale3d(0.8, 0.8, 0.8);		
-	transform: scale3d(0.8, 0.8, 0.8) ;
+	transform: scale3d(0.8, 0.8, 0.8);
 }
 
 #logo {		
@@ -103,10 +103,12 @@ body {
 #logo:hover {
 	opacity: 1;
 	-webkit-transform: scale3d(1.1,1.1,1.1) rotate3d(0,0,1,360deg);
+	transform: scale3d(1.1,1.1,1.1) rotate3d(0,0,1,360deg);
 }
 
 #logo:active {
 	-webkit-transform: scale3d(0.9,0.9,0.9) rotate3d(0,0,1,360deg);	
+	transform: scale3d(0.9,0.9,0.9) rotate3d(0,0,1,360deg);	
 }
 
 #game {
@@ -158,8 +160,8 @@ body {
 	position: absolute;	
 	top: 50%;
 	left: 50%;
-	-webkit-transform: translate3d(-50%, -50%, 0) ;
-	transform: translate3d(-50%, -50%, 0) ;
+	-webkit-transform: translate3d(-50%, -50%, 0);
+	transform: translate3d(-50%, -50%, 0);
 }
 
 .right {
@@ -172,14 +174,14 @@ button {
 }
 
 button:hover {		
-	-webkit-transform: scale3d(1.04,1.04,1.04) ;
-	transform: scale3d(1.04,1.04,1.04) ;
+	-webkit-transform: scale3d(1.04,1.04,1.04);
+	transform: scale3d(1.04,1.04,1.04);
 	opacity: 1;					
 }
 
 button:active{	
-	-webkit-transform: scale3d(0.9,0.9,0.9) ;
-	transform: scale3d(0.9,0.9,0.9) ;
+	-webkit-transform: scale3d(0.9,0.9,0.9);
+	transform: scale3d(0.9,0.9,0.9);
 }
 
 button::-moz-focus-inner {
@@ -239,14 +241,14 @@ button::-moz-focus-inner {
 
 #timerSection > *:hover {	
 	opacity: 1;
-	-webkit-transform: scale3d(1.04, 1.04, 1.04) ;
-	transform: scale3d(1.04, 1.04, 1.04) ;
+	-webkit-transform: scale3d(1.04, 1.04, 1.04);
+	transform: scale3d(1.04, 1.04, 1.04);
 	background-color: #2929a3;
 }
 
 #timerSection > *:active {	
-	-webkit-transform: scale3d(0.9, 0.9, 0.9) ;
-	transform: scale3d(0.9, 0.9, 0.9) ;
+	-webkit-transform: scale3d(0.9, 0.9, 0.9);
+	transform: scale3d(0.9, 0.9, 0.9);
 }
 		
 #timerImage {
@@ -254,13 +256,13 @@ button::-moz-focus-inner {
 }
 
 #timerImage:hover {
-	-webkit-transform: rotate3d(0,0,1,360deg) ;
-	transform: rotate3d(0,0,1,360deg) ;
+	-webkit-transform: rotate3d(0,0,1,360deg);
+	transform: rotate3d(0,0,1,360deg);
 }	
 
 #timerImage:active {	
-	-webkit-transform: scale3d(0.9, 0.9, 0.9) ;
-	transform: scale3d(0.9, 0.9, 0.9) ;
+	-webkit-transform: scale3d(0.9, 0.9, 0.9);
+	transform: scale3d(0.9, 0.9, 0.9);
 }
 		
 #timer {
@@ -278,8 +280,8 @@ button::-moz-focus-inner {
 	top: 50%;
 	left: 50%;
 	margin-right: -50%;
-	-webkit-transform: ranslate3d(-50%, -50%, 0) ;
-	transform: translate3d(-50%, -50%, 0) ;	
+	-webkit-transform: translate3d(-50%, -50%, 0);
+	transform: translate3d(-50%, -50%, 0);	
 	animation: slideFromBottomV2 0.4s;
 	background-color: #211f27;
 }
@@ -297,6 +299,7 @@ button::-moz-focus-inner {
 	overflow-y: scroll;
 	overscroll-behavior: none;
 	scrollbar-width: none;								/* Firefox */
+	backface-visibility: hidden;						/* Blurry text fix */
 }
 			
 .menuContentSection::-webkit-scrollbar {
@@ -385,14 +388,14 @@ td {
 }
 
 td:hover {
-	-webkit-transform: scale3d(1.04,1.04,1.04) ;
-	transform: scale3d(1.04,1.04,1.04) ;
+	-webkit-transform: scale3d(1.04,1.04,1.04);
+	transform: scale3d(1.04,1.04,1.04);
 	opacity: 1;	
 }
 
 td:active {	
-	-webkit-transform: scale3d(0.9,0.9,0.9) ;
-	transform: scale3d(0.9,0.9,0.9) ;
+	-webkit-transform: scale3d(0.9,0.9,0.9);
+	transform: scale3d(0.9,0.9,0.9);
 }
 
 label {
@@ -411,8 +414,8 @@ input, button {
 
 input:hover, input:focus {
 	opacity: 1;	
-	-webkit-transform: scale3d(1.04,1.04,1.04) ;
-	transform: scale3d(1.04,1.04,1.04) ;
+	-webkit-transform: scale3d(1.04,1.04,1.04);
+	transform: scale3d(1.04,1.04,1.04);
 }
 
 #points {
