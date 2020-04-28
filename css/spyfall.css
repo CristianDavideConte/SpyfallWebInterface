@@ -416,7 +416,8 @@ input:hover, input:focus {
 }
 
 #points {
-	cursor: pointer;	
+	cursor: pointer;		
+	width: 3em;	
 }
 
 h1 {
