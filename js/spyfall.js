@@ -298,6 +298,13 @@ function showRules() {
 			window.open("https://cristiandavideconte.github.io/myPersonalWebPage/");												//Opens my website in a new tab when the logoImageElement is clicked with the middle mouse button
 	}, {passive:true});		
 	
+	if ("ontouchstart" in window) {																									//If the device supports the touchstartevent the support is added
+		titleSection.addEventListener("touchstart", event => {
+			event.preventDefault();																									//Prevents the mousedownEvent from firing after the touchstartEvent
+			window.open("https://spyfall.adrianocola.com/");																		//Opens the actual game page in a new tab when the logoImageElement is touched
+		}, {passive:false});
+	}
+	
 	let content = document.createElement("div");
 	for(const line of gameRulesHTMLElements)
 		content.innerHTML += line;
@@ -940,10 +947,12 @@ function changeVariableDown(id) {
 	}
 }				
 
-
+/* This Function returns true if the browser used is the Microsoft Old Edge, false otherwise.
+ * The result is determined by looking at the browser's user agent
+ */
 function isBrowserEdge() {
-	let chrome = navigator.userAgent.search("Chrome") == 81;
-	return chrome && navigator.userAgent.search("Edge") == 116;
+	let chrome = navigator.userAgent.search("Chrome") == 81;	//Returns true if the browser used is based on chronium
+	return chrome && navigator.userAgent.search("Edge") == 116;	//Returns true if the browser used is microsoft Edge
 }
 
 function checkScenaryInput() {

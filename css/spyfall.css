@@ -67,6 +67,7 @@ body::-webkit-scrollbar {
 	outline: 0;	
 	border: none;						
 	border-radius: 0.7em;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);		
 	transition-duration: 0.3s;
 }
 
