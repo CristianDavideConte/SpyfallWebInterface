@@ -292,11 +292,12 @@ function showRules() {
 	let titleSection = logoImageElement;
 	titleSection.style.height = "6em";	
 	titleSection.addEventListener("mousedown", event => {
+		event.preventDefault();		
 		if(event.button == 0)
 			window.open("https://spyfall.adrianocola.com/");																		//Opens the actual game page in a new tab when the logoImageElement is clicked with the left mouse button
 		else if(event.button == 1) 
 			window.open("https://cristiandavideconte.github.io/myPersonalWebPage/");												//Opens my website in a new tab when the logoImageElement is clicked with the middle mouse button
-	}, {passive:true});		
+	}, {passive:false});		
 	
 	if ("ontouchstart" in window) {																									//If the device supports the touchstartevent the support is added
 		titleSection.addEventListener("touchstart", event => {
