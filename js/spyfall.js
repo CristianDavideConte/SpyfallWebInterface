@@ -337,11 +337,7 @@ function showScenaryNotChosenMenu() {
 					menuTable, 	
 					[getButton("confirmButton", "menuButton", "Conferma", () => {
 																				confirmButtonHandler();
-																				if(!isBrowserEdge()) 
-																					gameElement.scrollTo({
-																						top: 0,
-																						behavior: "smooth"
-																					});	
+																				scrollGameElement(0, -1);
 					}), 
 					 getButton("selectAllButton", "menuButton", "Seleziona Tutti", function () {
 																					let cells = new Set();
@@ -352,12 +348,7 @@ function showScenaryNotChosenMenu() {
 																				 }
 					 ),
 					getButton("cancelButton", "menuButton", "Annulla", () => {
-																				removeMenuAndRestoreMainPage();
-																				if(!isBrowserEdge()) 
-																					gameElement.scrollTo({
-																						top: gameElement.scrollHeight,
-																						behavior: "smooth"
-																					});	
+																				removeMenuAndRestoreMainPage(); 
 					})],
 					new Map([["keydown", (event) => {	event.stopPropagation();
 					
@@ -387,11 +378,8 @@ function showScenaryChosenMenu() {
 					menuTable,
 					[getButton("confirmButton", "menuButton", "Conferma", () => {
 																				confirmButtonHandler();
-																				if(!isBrowserEdge()) 
-																					gameElement.scrollTo({
-																						top: 0,
-																						behavior: "smooth"
-																					});	
+																				scrollGameElement(0, -1);
+																				
 					}), 
 					 getButton("selectAllButton", "menuButton", "Seleziona Tutti", function () {
 																					let cells = new Set();
@@ -403,11 +391,6 @@ function showScenaryChosenMenu() {
 					 ),
 					getButton("cancelButton", "menuButton", "Annulla", () => {
 																				removeMenuAndRestoreMainPage();
-																				if(!isBrowserEdge()) 
-																					gameElement.scrollTo({
-																						top: gameElement.scrollHeight,
-																						behavior: "smooth"
-																					});	
 					})],
 					new Map([["keydown", (event) => {	event.stopPropagation();
 														
@@ -469,6 +452,7 @@ function showPopUpMenu(titleSection, content, buttonSection, menuEventsMap) {
 	menuElement = getPopUpMenu(titleSection, content, buttonSection, menuEventsMap);	
 	menuSectionElement.appendChild(menuOverlayElement);
 	menuSectionElement.appendChild(menuElement);
+	setTimeout(() => menuElement.classList.add("menuOnScreen"), 50);							//Makes the menu animate (slides from bottom)
 	for(const menuEventAndHandlerCupple of menuEventsMap.entries())
 		menuElement.addEventListener(menuEventAndHandlerCupple[0], menuEventAndHandlerCupple[1], {passive: false});											//Creates the menu inside the HTML menu div
 	
@@ -542,7 +526,7 @@ function getFormattedTableFromArray(columnsNum, optionsSet, cellClass, idModifie
 	let cellCounter;																			//Tells you at what cell number you are at				
 	let tr,i;																					//Loop's TableRow element and counter
 	
-	let option = optionsSet.values();
+	let option = optionsSet.values();															//Used to remember the set the initial state of the gameBoxes
 	
 	for(i = 0; i < optionSetSize; i++) {			
 		if(i % columnsNum == 0) {
@@ -647,7 +631,7 @@ function removeMenuAndRestoreMainPage() {
 		menuOverlayElement.classList.remove("popUpOverlayDismissed");										//Remove the popUpOverlayDismissed class from the menuOverlayElement HTML element so that when it's used again it's not considered as "dismissed"
 	}, 350);
 	
-	menuElement.classList.add("menuDismissed");																//Add the menuDismissed class to the menuElement HTML element so that it animates properly before being removed								 
+	menuElement.classList.remove("menuOnScreen");															//Makes the menu animate (slides to bottom)								 
 	menuOverlayElement.classList.add("popUpOverlayDismissed");												//Add the popUpOverlayDismissed class to the popUpOverlay HTML element so that it animates properly before being removed	
 
 	let backgroundContentElements = document.getElementsByClassName("backgroundContent");					//Stores the background contents collection inside a variable for a faster access later
@@ -736,22 +720,14 @@ function endGame() {
 	resetInputs();																								//Calls resetInputs to clear all inputBox HTML elements				
 	resetVariable("timer");																						//Calls resetVariable passing the timer id so that the HTML timer element is set back to the default state
 	resetVariable("points");																					//Calls resetVariable passing the points id so that the HTML points element is set back to the default state
-
-	if (!isBrowserEdge()) {
-		setTimeout(() => endGameButtonElement.addEventListener("click", endGame,{passive: true}), 400)				//The endGameButton behavior (when clicked) is restored	after the transition
-		setTimeout(() => createGameTable(gameTableTitle), 200);														//After waiting the first half of the transition the new gameTable is created by calling the createGameTable and passing it the just created title
-		gameElement.animate([																						//Animates the old gameTable (after half of the transition the old gameTable will be swapped with the new one): 3d version uses the GPU instead of the CPU
-				{offset: 0.0, "transform": "translate3d(0, 0, 0)", opacity:1},										//Starting position and opacity
-				{offset: 0.5, "transform": "translate3d(200vw,0, 0)", opacity:0},									//After half the transition time the gameTable will be translated to the right (out of the window) where the new gameTable is created
-				{offset: 0.51, "transform": "translate3d(-100vw, 0, 0)", opacity:0},								//It gets moved to the left of the visible window (but keeping the opacity to 0) so that it looks the new gameTable was always there					
-				{offset: 1, "transform": "translate3d(0, 0, 0)", opacity:1}											//The new gameTable is moved back to the original gameTable position and its opacity is increased to 1 so that it can be visible again
-		], { 
-		  duration: 400,																							//The transition lasts 400milliseconds
-		});
-	} else {
-		endGameButtonElement.addEventListener("click", endGame,{passive: true});
-		createGameTable(gameTableTitle);
-	}
+	
+	gameElement.classList.add("newGame");																		//Animates the old gameTable (after half of the transition the old gameTable will be swapped with the new one)
+	setTimeout(() => {
+		createGameTable(gameTableTitle);																		//After waiting the first half of the transition the new gameTable is created by calling the createGameTable and passing it the just created title
+		gameElement.classList.remove("newGame");																//Remove the "newGame" class from the gameElement so that it will be able to animate again 
+	}, 200);	
+	
+	setTimeout(() => endGameButtonElement.addEventListener("click", endGame,{passive: true}), 400);				//The endGameButton behavior (when clicked) is restored	after the transition																				
 }
 
 /* This Function updates:
@@ -948,14 +924,19 @@ function changeVariableDown(id) {
 	}
 }				
 
-/* This Function returns true if the browser used is the Microsoft Old Edge, false otherwise.
- * The result is determined by looking at the browser's user agent
- */
-function isBrowserEdge() {
-	let chrome = navigator.userAgent.search("Chrome") == 81;	//Returns true if the browser used is based on chronium
-	return chrome && navigator.userAgent.search("Edge") == 116;	//Returns true if the browser used is microsoft Edge
+/* This Function smooth scrolls the gameElement to the passed finalOffsetTop */
+function scrollGameElement(finalOffsetTop, direction) {
+	let scrollTimeout;
+	if(direction*gameElement.scrollTop < finalOffsetTop) {
+		gameElement.scrollTop += (direction*gameElement.getBoundingClientRect().height/50);
+		scrollTimeout = setTimeout(() => scrollGameElement(finalOffsetTop, direction), 10);
+	} else 
+		clearTimeout(scrollTimeout);
 }
 
+/* EASTER EGG SECTION
+ * In this code section the Easter Eggs based on the user's input inside the game scenaryInputBox are set.
+ */
 function checkScenaryInput() {
 	if(scenaryInputElement.value == "Casa di Ana") {
 		showMessage("EASTER EGG", "Qualcuno ha detto festa? &#127881");
@@ -993,6 +974,9 @@ function checkScenaryInput() {
 	}
 }
 
+/* EASTER EGG SECTION
+ * In this code section the Easter Eggs based on the user's input inside the game roleInputBox are set.
+ */
 function checkRoleInput() {
 	if(roleInputElement.value == "Ana"){
 		window.open("https://it.wikipedia.org/wiki/Ipersonnia");

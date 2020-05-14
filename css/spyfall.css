@@ -19,26 +19,10 @@
 	}
 }
 
-@keyframes slideFromBottomV2 {
-	from {
-		opacity: 50%;
-		-webkit-transform: translate3d(-50%, 100vh, 0);
-		transform: translate3d(-50%, 100vh, 0);
-	}
-}
-
 @keyframes slideFromLeft {
 	from {
 		-webkit-transform: translate3d(-200vw, 0, 0);
 		transform: translate3d(-200vw, 0, 0);
-	}
-}
-
-@keyframes slideToBottomV2 {
-	to {
-		opacity: 50%;
-		-webkit-transform: translate3d(-50%, 100vh, 0);
-		transform: translate3d(-50%, 100vh, 0);
 	}
 }
 
@@ -125,13 +109,18 @@ body {
 	margin-bottom: calc(120 / 100 * 1.7vmin + 0.5em + 0.5em + 0.5em + 0.5em + 1vh);									/* Inputs FontSize + Inputs padding-top + Inputs padding-bottom + bottomToolBar padding-top + bottomToolBar padding-bottom + bottomToolBar margin-bottom */
 	margin-right: 1%;
 	margin-left: 1%;
-	animation: slideFromLeft 0.4s;
 	scrollbar-width: none;										/* Firefox */
+	animation: slideFromLeft 0.4s;
 }	
 
 #game::-webkit-scrollbar {
 	display: none;
 	-ms-overflow-style: none;
+}
+
+#game.newGame {	
+	-webkit-transform: translate3d(200vw,0, 0);
+	transform: translate3d(200vw,0, 0);
 }
 
 .gameToolBar {
@@ -276,6 +265,11 @@ button::-moz-focus-inner {
 	width: 3em;	
 }
 
+#menuSection {
+	display:flex;
+	justify-content:center;
+}
+
 .menu {
 	z-index: 3;
 	position: fixed;					
@@ -283,17 +277,17 @@ button::-moz-focus-inner {
 	flex-direction:column;
 	align-items: center;
 	justify-content: center;
-	top: 50%;
-	left: 50%;
-	margin-right: -50%;
-	-webkit-transform: translate3d(-50%, -50%, 0);
-	transform: translate3d(-50%, -50%, 0);	
-	animation: slideFromBottomV2 0.4s;
 	background-color: #211f27;
+	top:100%;	
+	opacity: 0.5;
+	transition: 0.3s;
 }
 
-.menuDismissed {	
-	animation: slideToBottomV2 0.4s;
+.menuOnScreen {	
+	opacity: 1;
+	top: 50%;
+	-webkit-transform: translate3d(0, -50%, 0);
+	transform: translate3d(0, -50%, 0);	
 }
 
 .menuTitleSection {
