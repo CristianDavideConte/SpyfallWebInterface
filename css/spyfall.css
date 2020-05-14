@@ -119,8 +119,8 @@ body {
 }
 
 #game.newGame {	
-	-webkit-transform: translate3d(200vw,0, 0);
-	transform: translate3d(200vw,0, 0);
+	margin-top: 5vh;
+	opacity: 0;
 }
 
 .gameToolBar {
