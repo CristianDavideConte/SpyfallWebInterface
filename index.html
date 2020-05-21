@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 	<head>		
+		<meta name = "Description" content = "Un'interfaccia utile e divertente per il gioco da tavolo Spyfall !">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
-		<link rel="shortcut icon" href="./images/spylogo.jpg">
-		<link rel="stylesheet" type="text/css" href="./css/spyfall.css">
-		<link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Oldenburg&display=swap" rel="stylesheet">	
+		<title>Spyfall</title>
+		
+		<link rel = "preload" as = "shortcut icon" href = "./images/spylogo.jpg">
+		<link rel = "preload" as = "stylesheet" href = "https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Oldenburg&display=swap" crossorigin = "anonymous">	
+		<link rel = "preload" as = "stylesheet" type = "text/css" href = "./css/spyfall.css">
 		<script src="./js/spyfall.js"></script>
 		
-		<title>Spyfall</title>
 	</head>
 
 	<body unselectable = "on" onload = "init()">
@@ -27,12 +29,16 @@
 		<div id = "game"></div>
 		<div id = "bottomToolBar" class = "gameToolBar">
 			<div class = "left">
-				<label>Punti:</label>
+				<label for = "points">Punti:</label>
 				<input type = "text" id = "points" value = 0 size = 1 readonly>	
 				<input type = "text" id = "scenaryInput" class = "inputBox" placeholder = "Scenario">
 				<input type =" text" id = "roleInput" class = "inputBox" placeholder = "Ruolo">
 			</div>
 			<button type = "button" id = "resetGameButton" class = "right">Nuovo Round</button>     
 		</div>		
+		
+		<link rel = "stylesheet" type = "text/css" href = "./css/spyfall.css">
+		<link rel = "stylesheet" href = "https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Oldenburg&display=swap" crossorigin = "anonymous">	
+		<link rel = "shortcut icon" href = "./images/spylogo.jpg">
 	</body>
 </html>
