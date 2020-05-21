@@ -39,6 +39,12 @@
 	}
 }
 
+:root {		
+	--scaling-factor-increase:1.1;
+	--scaling-factor-increase-reduced:1.04;
+	--scaling-factor-decrease:0.9;
+}
+
 body::-webkit-scrollbar {
 	display: none;
 }
@@ -76,14 +82,14 @@ body {
 }
 
 #infoImage:hover {
-	-webkit-transform: scale3d(1.1,1.1,1.1);
-	transform: scale3d(1.1,1.1,1.1);
+	-webkit-transform: scale3d(var(--scaling-factor-increase), var(--scaling-factor-increase), var(--scaling-factor-increase));
+	transform: scale3d(var(--scaling-factor-increase), var(--scaling-factor-increase), var(--scaling-factor-increase));
 	opacity: 1;
 }
 
 #infoImage:active {
-	-webkit-transform: scale3d(0.8, 0.8, 0.8);		
-	transform: scale3d(0.8, 0.8, 0.8);
+	-webkit-transform: scale3d(var(--scaling-factor-decrease), var(--scaling-factor-decrease), var(--scaling-factor-decrease));
+	transform: scale3d(var(--scaling-factor-decrease), var(--scaling-factor-decrease), var(--scaling-factor-decrease));
 }
 
 #logo {		
@@ -92,13 +98,13 @@ body {
 
 #logo:hover {
 	opacity: 1;
-	-webkit-transform: scale3d(1.1,1.1,1.1) rotate3d(0,0,1,360deg);
-	transform: scale3d(1.1,1.1,1.1) rotate3d(0,0,1,360deg);
+	-webkit-transform: scale3d(var(--scaling-factor-increase), var(--scaling-factor-increase), var(--scaling-factor-increase)) rotate3d(0,0,1,360deg);
+	transform: scale3d(var(--scaling-factor-increase), var(--scaling-factor-increase), var(--scaling-factor-increase)) rotate3d(0,0,1,360deg);
 }
 
 #logo:active {
-	-webkit-transform: scale3d(0.9,0.9,0.9) rotate3d(0,0,1,360deg);	
-	transform: scale3d(0.9,0.9,0.9) rotate3d(0,0,1,360deg);	
+	-webkit-transform: scale3d(var(--scaling-factor-decrease), var(--scaling-factor-decrease), var(--scaling-factor-decrease)) rotate3d(0,0,1,360deg);	
+	transform: scale3d(var(--scaling-factor-decrease), var(--scaling-factor-decrease), var(--scaling-factor-decrease)) rotate3d(0,0,1,360deg);	
 }
 
 #game {
@@ -169,14 +175,14 @@ button {
 }
 
 button:hover {		
-	-webkit-transform: scale3d(1.04,1.04,1.04);
-	transform: scale3d(1.04,1.04,1.04);
+	-webkit-transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
+	transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
 	opacity: 1;					
 }
 
 button:active{	
-	-webkit-transform: scale3d(0.9,0.9,0.9);
-	transform: scale3d(0.9,0.9,0.9);
+	-webkit-transform: scale3d(var(--scaling-factor-decrease), var(--scaling-factor-decrease), var(--scaling-factor-decrease));
+	transform: scale3d(var(--scaling-factor-decrease), var(--scaling-factor-decrease), var(--scaling-factor-decrease));
 }
 
 button::-moz-focus-inner {
@@ -188,17 +194,31 @@ button::-moz-focus-inner {
 	background-color: #e46401;
 }
 
-#resetGameButton:hover {
+@media (hover:hover) {
+	#resetGameButton:hover {
+		opacity: 1;	
+		background-color: #fe7d1b;
+	}
+}
+
+#resetGameButton:active {
 	opacity: 1;	
 	background-color: #fe7d1b;
 }
-
+	
 #endGameButton {
 	opacity: 0.6;
 	background-color: #e6001f;
 }
 
-#endGameButton:hover {				
+@media (hover:hover) {
+	#endGameButton:hover {				
+		opacity: 1;	
+		background-color: #f2001f;
+	}
+}
+
+#endGameButton:active {				
 	opacity: 1;	
 	background-color: #f2001f;
 }
@@ -236,14 +256,14 @@ button::-moz-focus-inner {
 
 #timerSection > *:hover {	
 	opacity: 1;
-	-webkit-transform: scale3d(1.04, 1.04, 1.04);
-	transform: scale3d(1.04, 1.04, 1.04);
+	-webkit-transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
+	transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
 	background-color: #2929a3;
 }
 
 #timerSection > *:active {	
-	-webkit-transform: scale3d(0.9, 0.9, 0.9);
-	transform: scale3d(0.9, 0.9, 0.9);
+	-webkit-transform: scale3d(var(--scaling-factor-decrease), var(--scaling-factor-decrease), var(--scaling-factor-decrease));
+	transform: scale3d(var(--scaling-factor-decrease), var(--scaling-factor-decrease), var(--scaling-factor-decrease));
 }
 		
 #timerImage {
@@ -256,8 +276,8 @@ button::-moz-focus-inner {
 }	
 
 #timerImage:active {	
-	-webkit-transform: scale3d(0.9, 0.9, 0.9);
-	transform: scale3d(0.9, 0.9, 0.9);
+	-webkit-transform: scale3d(var(--scaling-factor-decrease), var(--scaling-factor-decrease), var(--scaling-factor-decrease));
+	transform: scale3d(var(--scaling-factor-decrease), var(--scaling-factor-decrease), var(--scaling-factor-decrease));
 }
 		
 #timer {
@@ -337,7 +357,13 @@ button::-moz-focus-inner {
 	background-color: #0080ff;
 }
 
-.menuButton:hover {
+@media (hover:hover) {
+	.menuButton:hover {
+		background-color: #1a8cff;
+	}
+}
+
+.menuButton:active {
 	background-color: #1a8cff;
 }
 
@@ -366,7 +392,13 @@ button::-moz-focus-inner {
 	background-color: #02b15f;
 }
 
-.gameBoxNotSelected:hover {
+@media (hover:hover) {
+	.gameBoxNotSelected:hover {
+		background-color: #017e44;
+	}
+}
+
+.gameBoxNotSelected:active {
 	background-color: #017e44;
 }
 
@@ -375,7 +407,13 @@ button::-moz-focus-inner {
 	background-color: #e6001f;
 }
 
-.gameBoxSelected:hover {
+@media (hover:hover) {
+	.gameBoxSelected:hover {
+		background-color: #f2001f;		
+	}
+}
+
+.gameBoxSelected:active {
 	background-color: #f2001f;		
 }
 
@@ -396,15 +434,18 @@ td {
 	text-overflow: ellipsis; 
 }
 
-td:hover {
-	-webkit-transform: scale3d(1.04,1.04,1.04);
-	transform: scale3d(1.04,1.04,1.04);
-	opacity: 1;	
+@media (hover:hover) {
+	td:hover {
+		-webkit-transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
+		transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
+		opacity: 1;	
+	}
 }
 
 td:active {	
-	-webkit-transform: scale3d(0.9,0.9,0.9);
-	transform: scale3d(0.9,0.9,0.9);
+	-webkit-transform: scale3d(var(--scaling-factor-decrease), var(--scaling-factor-decrease), var(--scaling-factor-decrease));
+	transform: scale3d(var(--scaling-factor-decrease), var(--scaling-factor-decrease), var(--scaling-factor-decrease));
+	opacity: 1;	
 }
 
 label {
@@ -421,10 +462,18 @@ input, button {
 	background-color: #3333ff;	
 }	
 
-input:hover, input:focus {
+@media (hover:hover) {
+	input:hover {
+		opacity: 1;	
+		-webkit-transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
+		transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
+	}
+}
+
+input:focus {
 	opacity: 1;	
-	-webkit-transform: scale3d(1.04,1.04,1.04);
-	transform: scale3d(1.04,1.04,1.04);
+	-webkit-transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
+	transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
 }
 
 #points {
