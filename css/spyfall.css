@@ -33,12 +33,6 @@
 	}
 }
 
-@keyframes fadeToDark {
-	from {
-		opacity: 0;	
-	}
-}
-
 :root {		
 	--scaling-factor-increase:1.1;
 	--scaling-factor-increase-reduced:1.04;
@@ -303,7 +297,7 @@ button::-moz-focus-inner {
 	transition: 0.3s;
 }
 
-.menuOnScreen {	
+.menu.menuOnScreen {	
 	opacity: 1;
 	top: 50%;
 	-webkit-transform: translate3d(0, -50%, 0);
@@ -378,10 +372,14 @@ button::-moz-focus-inner {
 	left: 0;
 	width: 100%;
 	height: 100%;
+	opacity: 0;
 	background-color: rgb(0, 0, 0);
 	background-color: rgba(0, 0, 0, 0.95);
-	animation: fadeToDark 0.4s;
 	transition-duration: 0.4s;
+}
+
+.popUpOverlay.menuOnScreen {
+	opacity: 1;
 }
 
 .popUpOverlayDismissed {

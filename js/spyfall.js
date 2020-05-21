@@ -452,7 +452,11 @@ function showPopUpMenu(titleSection, content, buttonSection, menuEventsMap) {
 	menuElement = getPopUpMenu(titleSection, content, buttonSection, menuEventsMap);	
 	menuSectionElement.appendChild(menuOverlayElement);
 	menuSectionElement.appendChild(menuElement);
-	setTimeout(() => menuElement.classList.add("menuOnScreen"), 50);							//Makes the menu animate (slides from bottom)
+	setTimeout(() =>  {
+		menuElement.classList.add("menuOnScreen");
+		menuOverlayElement.classList.add("menuOnScreen");
+	}, 20);																									//Makes the menu animate (slides from bottom)
+	
 	for(const menuEventAndHandlerCupple of menuEventsMap.entries())
 		menuElement.addEventListener(menuEventAndHandlerCupple[0], menuEventAndHandlerCupple[1], {passive: false});											//Creates the menu inside the HTML menu div
 	
@@ -626,13 +630,10 @@ function removeMenuAndRestoreMainPage() {
 	menuOverlayElement.removeEventListener("click", removeMenuAndRestoreMainPage);							//Prevents the user to trigger this function twice by clicking the menu overlay again
 	menuElement.removeChild(menuElement.lastChild);															//Prevents the user to trigger this function twice by clicking the menu buttons again
 	
-	setTimeout(() => {
-		menuSection.innerHTML = "";																			//Remove the currently displayed popUpMenu from HTML menu div after it has animated
-		menuOverlayElement.classList.remove("popUpOverlayDismissed");										//Remove the popUpOverlayDismissed class from the menuOverlayElement HTML element so that when it's used again it's not considered as "dismissed"
-	}, 350);
+	setTimeout(() => menuSection.innerHTML = "", 350);														//Remove the currently displayed popUpMenu from HTML menu div after it has animated
 	
 	menuElement.classList.remove("menuOnScreen");															//Makes the menu animate (slides to bottom)								 
-	menuOverlayElement.classList.add("popUpOverlayDismissed");												//Add the popUpOverlayDismissed class to the popUpOverlay HTML element so that it animates properly before being removed	
+	menuOverlayElement.classList.remove("menuOnScreen");													//Remove the menuOnScreen class from the popUpOverlay HTML element so that it animates properly 	
 
 	let backgroundContentElements = document.getElementsByClassName("backgroundContent");					//Stores the background contents collection inside a variable for a faster access later
 	while(backgroundContentElements.length)																	//For each background content
