@@ -512,4 +512,16 @@ img {
 	label {
 		display: none;
 	}
+	
+	input, button {
+		font-size: 130%;
+	}
+	
+	td {
+		font-size: 170%;
+	}
+	
+	.menu {	
+		font-size: 130%;
+	}
 }
