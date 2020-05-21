@@ -508,7 +508,7 @@ img {
 	color: #d1d1e0;
 }
 		
-@media only screen and (max-width: 1080px) {				
+@media only screen and (max-width: 1080px) and (min-height: 600px) {				
 	label {
 		display: none;
 	}
@@ -523,5 +523,19 @@ img {
 	
 	.menu {	
 		font-size: 130%;
+	}
+}
+
+@media only screen and (max-height: 600px) {
+	label {
+		display: none;
+	}
+	
+	button {
+		font-size: 130%;
+	}
+	
+	td {
+		font-size: 170%;
 	}
 }
