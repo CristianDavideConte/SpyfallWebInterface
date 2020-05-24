@@ -17,10 +17,10 @@
 	<body unselectable = "on" onload = "init()">
 		<div id = "menuSection"></div>
 		<div id = "topToolBar" class = "gameToolBar">	
-			<img class = "left" id = "infoImage"/>
+			<img src = "" alt = "infoImage" class = "left" id = "infoImage"/>
 			<div class = "center"> 
 				<form id = "timerSection">		
-					<img id = "timerImage"/>
+					<img src = "" alt = "timerImage" id = "timerImage"/>
 					<input type = "text" id = "timer" value = 1:00 size = 1 readonly>
 				</form>
 			</div>
@@ -31,8 +31,8 @@
 			<div class = "left">
 				<label for = "points">Punti:</label>
 				<input type = "text" id = "points" value = 0 size = 1 readonly>	
-				<input type = "text" id = "scenaryInput" class = "inputBox" placeholder = "Scenario">
-				<input type =" text" id = "roleInput" class = "inputBox" placeholder = "Ruolo">
+				<input type = "text" aria-label = "Scenario" id = "scenaryInput" class = "inputBox" placeholder = "Scenario">
+				<input type =" text" aria-label = "Ruolo" id = "roleInput" class = "inputBox" placeholder = "Ruolo">
 			</div>
 			<button type = "button" id = "resetGameButton" class = "right">Nuovo Round</button>     
 		</div>		

@@ -42,6 +42,14 @@
 body::-webkit-scrollbar {
 	display: none;
 }
+
+body ::selection {
+  background: #ffbb00; /* WebKit/Blink Browsers */
+}
+
+body::-moz-selection {
+  background: #ffbb00; /* Gecko Browsers */
+}	
 	
 * {
 	color: white;	
@@ -305,6 +313,7 @@ button::-moz-focus-inner {
 }
 
 .menuTitleSection {
+	cursor: default;
 	display:flex;
 	flex-direction:column;
 	align-items: center;
@@ -312,6 +321,7 @@ button::-moz-focus-inner {
 }
 
 .menuContentSection {	
+	cursor: default;
 	width: 37em;
 	max-height: 35em;
 	overflow-y: scroll;
@@ -480,6 +490,7 @@ input:focus {
 }
 
 h1 {
+	cursor: default;
 	font-family: 'Oldenburg', cursive;
 	font-size: 3em;
 }
