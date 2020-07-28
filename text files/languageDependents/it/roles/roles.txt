@@ -1,0 +1,439 @@
+0000000:Passeggero di Prima Classe
+0000001:Maresciallo D'Aviazione
+0000002:Meccanico
+0000003:Passeggero in Economy
+0000004:Hostess
+0000005:Co-Pilota
+0000006:Comandante
+0000007:Autista del Furgone Blindato
+0000008:Direttore
+0000009:Consulente Finanziario
+0000010:Cliente
+0000011:Rapinatore
+0000012:Guardia Armata
+0000013:Cassiere
+0000014:Cameriera del Bar
+0000015:Surfista
+0000016:Bagnino
+0000017:Ladro
+0000018:Bagnante
+0000019:Fotografo da Spiaggia
+0000020:Gelataio Ambulante
+0000021:Guardarobiera
+0000022:Suggeritore
+0000023:Bigliettaio
+0000024:Spettatore
+0000025:Regista
+0000026:Attore
+0000027:Tuttofare
+0000028:Barista
+0000029:Capo della Sicurezza
+0000030:Buttafuori
+0000031:Direttore
+0000032:Baro
+0000033:Croupier
+0000034:Scommettitore
+0000035:Prete
+0000036:Mendicante
+0000037:Peccatore
+0000038:Parrocchiano
+0000039:Turista
+0000040:Patrocinatore
+0000041:Cantante del Coro
+0000042:Acrobata
+0000043:Domatore
+0000044:Prestigiatore
+0000045:Spettatore
+0000046:Mangiatore di Fuoco
+0000047:Pagliaccio
+0000048:Giocoliere
+0000049:Animatore
+0000050:Dirigente
+0000051:Ospite Imbucato
+0000052:Proprietario
+0000053:Segretaria
+0000054:Contabile
+0000055:Fattorino
+0000056:Monaco
+0000057:Prigioniero Arabo
+0000058:Servitore
+0000059:Vescovo
+0000060:Scudiero
+0000061:Arciere
+0000062:Cavaliere
+0000063:Cliente
+0000064:Visagista
+0000065:Massaggiatrice
+0000066:Manicure
+0000067:Truccatrice
+0000068:Dermatologo
+0000069:Consulente di Bellezza
+0000070:Addetto alla Sicurezza
+0000071:Segretario
+0000072:Ambasciatore
+0000073:Ufficiale Governativo
+0000074:Turista
+0000075:Rifugiato
+0000076:Diplomatico
+0000077:Infermiera
+0000078:Dottore
+0000079:Anestesista
+0000080:Specializzando
+0000081:Paziente
+0000082:Fisioterapista
+0000083:Chirurgo
+0000084:Portiere
+0000085:Addetto alla Sicurezza
+0000086:Direttore
+0000087:Cameriera
+0000088:Cliente
+0000089:Barista
+0000090:Fattorino
+0000091:Disertore
+0000092:Colonnello
+0000093:Medico
+0000094:Soldato
+0000095:Cecchino
+0000096:Ufficiale
+0000097:Carrista
+0000098:Stuntman
+0000099:Tecnico del Suono
+0000100:Cameraman
+0000101:Regista
+0000102:Costumista
+0000103:Attore
+0000104:Produttore
+0000105:Passeggero
+0000106:Cuoco
+0000107:Capitano
+0000108:Barista
+0000109:Musicista
+0000110:Cameriere
+0000111:Macchinista
+0000112:Macchinista
+0000113:Doganiere
+0000114:Bigliettaio
+0000115:Passeggero
+0000116:Cuoco
+0000117:Capotreno
+0000118:Fuochista
+0000119:Cuoco
+0000120:Marinaio
+0000121:Schiavo
+0000122:Cannoniere
+0000123:Prigioniero
+0000124:Mozzo
+0000125:Capitano
+0000126:Medico
+0000127:Geologo
+0000128:Capo della Spedizione
+0000129:Biologo
+0000130:Operatore Radio
+0000131:Idrologo
+0000132:Meteorologo
+0000133:Ispettore
+0000134:Avvocato
+0000135:Giornalista
+0000136:Criminologo
+0000137:Archivista
+0000138:Agente di Pattuglia
+0000139:Criminale
+0000140:Musicista
+0000141:Cliente
+0000142:Maître
+0000143:Cameriera
+0000144:Chef
+0000145:Critico Gastronomico
+0000146:Sommelier
+0000147:Insegnante di Ginnastica
+0000148:Studente
+0000149:Preside
+0000150:Guardiano
+0000151:Bidello
+0000152:Addetta alla Mensa
+0000153:Inserviente
+0000154:Cassiere
+0000155:Gommista
+0000156:Motociclista
+0000157:Automobilista
+0000158:Addetto all'Autolavaggio
+0000159:Elettrauto
+0000160:Meccanico
+0000161:Ingegnere
+0000162:Alieno
+0000163:Turista Spaziale
+0000164:Pilota
+0000165:Comandante
+0000166:Scienziato
+0000167:Dottore
+0000168:Cuoco
+0000169:Comandante
+0000170:Addetto al Sonar
+0000171:Tecnico Elettronico
+0000172:Marinaio
+0000173:Operatore Radio
+0000174:Navigatore
+0000175:Cliente
+0000176:Cassiera
+0000177:Macellaio
+0000178:Inserviente
+0000179:Addetto alla Sicurezza
+0000180:Dimostratrice
+0000181:Supervisore
+0000182:Dottorando
+0000183:Professore
+0000184:Preside di Facoltà
+0000185:Psicologa
+0000186:Inserviente
+0000187:Studente
+0000188:Guardiano
+0000189:Operatore di corsa
+0000190:Genitore
+0000191:Fornitore alimentare
+0000192:Cassiere
+0000193:Bambino felice
+0000194:Bambino noioso
+0000195:Adolescente
+0000196:Custode
+0000197:Guardiano
+0000198:Genitore
+0000199:Venditore di biglietti
+0000200:Studente
+0000201:Visitatore
+0000202:Insegnante
+0000203:Guardiano
+0000204:Pittore
+0000205:Collezionista d'arte
+0000206:Critico d'arte
+0000207:Fotografo
+0000208:Turista
+0000209:Testa calda
+0000210:Chef pasticcere
+0000211:Visitatore
+0000212:Assaggiatore
+0000213:Creatore di tartufi
+0000214:Assaggiatore
+0000215:Addetto alla fornitura
+0000216:Oompa Loompa
+0000217:Ispettore
+0000218:Operatore della macchina
+0000219:Giudice
+0000220:Gestore dei gatti
+0000221:Veterinario
+0000222:Guardia di sicurezza
+0000223:Allenatore di gatti
+0000224:Gattara pazza
+0000225:Amante degli animali
+0000226:Proprietario gatto
+0000227:Gatto
+0000228:Gatto
+0000229:Prete
+0000230:Ragazza Gotica
+0000231:Ladro di tombe
+0000232:Poeta
+0000233:Persona a lutto
+0000234:Custode
+0000235:Persona morta
+0000236:Parente
+0000237:Venditrice di fiori
+0000238:Scavatore di tombe
+0000239:Ispettore di sicurezza
+0000240:Minatore
+0000241:Soprintendente
+0000242:Operatore del camioncino di scarico
+0000243:Perforatore
+0000244:Coordinatore
+0000245:Ingegnere dell'esplosivo
+0000246:Minatore
+0000247:Ingegnere dei rifiuti solidi
+0000248:Lavoratore
+0000249:Bambino piccolo girellone
+0000250:Appaltatore
+0000251:Autista della gru
+0000252:Trasgressore
+0000253:Ispettore di sicurezza
+0000254:Elettricista
+0000255:Ingegnere
+0000256:Architetto
+0000257:Operaio di costruzione
+0000258:Operaio di costruzione
+0000259:Blogger
+0000260:Cosplayer
+0000261:Giocatore
+0000262:Venditore
+0000263:Collezionista
+0000264:Bambino
+0000265:Guardia di sicurezza
+0000266:Geek
+0000267:Persona timida
+0000268:Persona famosa
+0000269:Appassionato d'auto
+0000270:Assistente di servizio
+0000271:Negoziante
+0000272:Cliente
+0000273:Lavaggista
+0000274:Cassiere
+0000275:Cliente
+0000276:Attivista per il cambiamento climatico
+0000277:Assistente di servizio
+0000278:Manager
+0000279:Caricatore
+0000280:Rude vecchio pirata
+0000281:Capitano
+0000282:Marinaio
+0000283:Caricatore
+0000284:Pescatore
+0000285:Esportatore
+0000286:Sopraintendente del carico
+0000287:Ispettore del carico
+0000288:Contrabbandiere
+0000289:Fan dell'hockey
+0000290:Medico
+0000291:Giocatore d'hockey
+0000292:Fornitore alimentare
+0000293:Guardia di sicurezza
+0000294:Portiere
+0000295:Allenatore
+0000296:Arbitro
+0000297:Spettatore
+0000298:Giocatore d'hockey
+0000299:Uomo accusato ingiustamente
+0000300:Operatore CCTV
+0000301:Guardia
+0000302:Visitatore
+0000303:Avvocato
+0000304:Custode
+0000305:Custode della prigione
+0000306:Criminale
+0000307:Ufficiale di correzione
+0000308:Maniaco
+0000309:Buttafuori
+0000310:Batterista
+0000311:Pianista
+0000312:Sassofonista
+0000313:Cantante
+0000314:Fanatico del jazz
+0000315:Danzatore
+0000316:Barista
+0000317:VIP
+0000318:Cameriere
+0000319:Uomo anziano
+0000320:Giornalista
+0000321:Autore
+0000322:Volontario
+0000323:Sapientone
+0000324:Studente
+0000325:Bibliotecario
+0000326:Millantatore
+0000327:Fanatico del libro
+0000328:Nerd
+0000329:Frequentatore ricorrente
+0000330:Barista
+0000331:Guardia di sicurezza
+0000332:Danzatore
+0000333:Maestro nel rimorchiare
+0000334:Ragazza della festa
+0000335:Modella
+0000336:Tizio muscoloso
+0000337:Persona ubriaca
+0000338:Persona timida
+0000339:Proprietario di casa automobilistica
+0000340:Automobilista
+0000341:Ingegnere
+0000342:Spettatore
+0000343:Commissario di gara
+0000344:Meccanico
+0000345:Fornitore alimentare
+0000346:Commentatore
+0000347:Allibratore
+0000348:Spettatore
+0000349:Parente
+0000350:Giocatore di Cribbage gioco di carte
+0000351:Persona anziana
+0000352:Infermiera
+0000353:Custode
+0000354:Cuoco
+0000355:Persona cieca
+0000356:Psicologo
+0000357:Persona anziana
+0000358:Infermiera
+0000359:Danzatore
+0000360:Cantante
+0000361:Ammiratore
+0000362:Chitarrista
+0000363:Batterista
+0000364:Roadie
+0000365:Tuffatore dal palco
+0000366:Guardia di sicurezza
+0000367:Bassista
+0000368:Supporto tecnico
+0000369:Uomo anziano
+0000370:Turista solitario
+0000371:Autista
+0000372:Bambino noioso
+0000373:Turista
+0000374:Guida turistica
+0000375:Fotografo
+0000376:Turista
+0000377:Persona smarrita
+0000378:Turista
+0000379:Medico
+0000380:Lancia martelli
+0000381:Atleta
+0000382:Commentatore
+0000383:Spettatore
+0000384:Guardia di sicurezza
+0000385:Arbitro
+0000386:Fornitore alimentare
+0000387:Atleta altista
+0000388:Velocista
+0000389:Turista
+0000390:Operatore metropolitana
+0000391:Controllore
+0000392:Donna incinta
+0000393:Borseggiatore
+0000394:Addetto alla pulizia
+0000395:Uomo d'affari
+0000396:Venditore di biglietti
+0000397:Signora anziana
+0000398:Uomo cieco
+0000399:Diplomatico
+0000400:Interprete
+0000401:Sbruffone
+0000402:Turista
+0000403:Delegato addormentato
+0000404:Giornalista
+0000405:Segretario di stato
+0000406:Oratore
+0000407:Segretario generale
+0000408:Lobbista
+0000409:Giardiniere
+0000410:Guida Gourmet
+0000411:Produttore di vino
+0000412:Esportatore
+0000413:Maggiordomo
+0000414:Degustatore di vino
+0000415:Sommelier
+0000416:Ricco padrone
+0000417:Gestore del vigneto
+0000418:Enologo
+0000419:Paggetto
+0000420:Sposo
+0000421:Sposa
+0000422:Prete
+0000423:Fotografo
+0000424:Ragazza dei fiori
+0000425:Padre della sposa
+0000426:Rovina-Matrimoni
+0000427:Testimone
+0000428:Parente
+0000429:Guardiano dello zoo
+0000430:Visitatore
+0000431:Fotografo
+0000432:Bambino
+0000433:Veterinario
+0000434:Turista
+0000435:Fornitore alimentare
+0000436:Cassiere
+0000437:Guardiano dello zoo
+0000438:Ricercatore

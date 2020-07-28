@@ -1,0 +1,52 @@
+0000000:Aeroplano
+0000001:Banca
+0000002:Spiaggia
+0000003:Teatro
+0000004:Casinò
+0000005:Cattedrale
+0000006:Tendone del Circo
+0000007:Festa Aziendale
+0000008:Esercito dei Crociati
+0000009:Centro Benessere
+0000010:Ambasciata
+0000011:Ospedale
+0000012:Albergo
+0000013:Base Militare
+0000014:Studio Cinematografico
+0000015:Nave da Crociera
+0000016:Treno Passeggeri
+0000017:Nave Pirata
+0000018:Stazione Polare
+0000019:Commissariato
+0000020:Ristorante
+0000021:Scuola
+0000022:Stazione di Servizio
+0000023:Stazione Spaziale
+0000024:Sottomarino
+0000025:Supermercato
+0000026:Università
+0000027:Parco di Divertimenti
+0000028:Museo d'Arte
+0000029:Fabbrica di Caramelle
+0000030:Mostra Felina
+0000031:Cimitero
+0000032:Miniera di Carbone
+0000033:Cantiere
+0000034:Convention di Giochi
+0000035:Pompa di Benzina
+0000036:Porto
+0000037:Stadio di Hockey
+0000038:Prigione
+0000039:Club Jazz
+0000040:Biblioteca
+0000041:Discoteca
+0000042:Ippodromo
+0000043:Casa di Riposo
+0000044:Concerto Rock
+0000045:Autobus Turistico
+0000046:Stadio
+0000047:Metropolitana
+0000048:Le Nazioni Unite
+0000049:Vigneto
+0000050:Matrimonio
+0000051:Zoo
