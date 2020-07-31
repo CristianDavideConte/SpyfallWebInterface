@@ -34,9 +34,17 @@
 }
 
 :root {
-	--scaling-factor-increase:1.1;
-	--scaling-factor-increase-reduced:1.04;
-	--scaling-factor-decrease:0.9;
+	--scaling-factor-increase:1;
+	--scaling-factor-increase-reduced:1;
+	--scaling-factor-decrease:1;
+}
+
+@media (hover:hover) and (pointer: fine) {
+	:root {
+		--scaling-factor-increase:1.1;
+		--scaling-factor-increase-reduced:1.04;
+		--scaling-factor-decrease:0.9;
+	}
 }
 
 body::-webkit-scrollbar {
@@ -196,11 +204,9 @@ button::-moz-focus-inner {
 	background-color: #e46401;
 }
 
-@media (hover:hover) {
-	#resetGameButton:hover {
-		opacity: 1;
-		background-color: #fe7d1b;
-	}
+#resetGameButton:hover {
+	opacity: 1;
+	background-color: #fe7d1b;
 }
 
 #resetGameButton:active {
@@ -213,11 +219,9 @@ button::-moz-focus-inner {
 	background-color: #e6001f;
 }
 
-@media (hover:hover) {
-	#endGameButton:hover {
-		opacity: 1;
-		background-color: #f2001f;
-	}
+#endGameButton:hover {
+	opacity: 1;
+	background-color: #f2001f;
 }
 
 #endGameButton:active {
@@ -362,10 +366,8 @@ button::-moz-focus-inner {
 	background-color: #0080ff;
 }
 
-@media (hover:hover) {
-	.menuButton:hover {
-		background-color: #1a8cff;
-	}
+.menuButton:hover {
+	background-color: #1a8cff;
 }
 
 .menuButton:active {
@@ -400,10 +402,8 @@ button::-moz-focus-inner {
 	background-color: #02b15f;
 }
 
-@media (hover:hover) {
-	.gameBoxNotSelected:hover {
-		background-color: #017e44;
-	}
+.gameBoxNotSelected:hover {
+	background-color: #017e44;
 }
 
 .gameBoxNotSelected:active {
@@ -415,10 +415,8 @@ button::-moz-focus-inner {
 	background-color: #e6001f;
 }
 
-@media (hover:hover) {
-	.gameBoxSelected:hover {
-		background-color: #f2001f;
-	}
+.gameBoxSelected:hover {
+	background-color: #f2001f;
 }
 
 .gameBoxSelected:active {
@@ -442,12 +440,10 @@ td {
 	text-overflow: ellipsis;
 }
 
-@media (hover:hover) {
-	td:hover {
-		-webkit-transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
-		transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
-		opacity: 1;
-	}
+td:hover {
+	-webkit-transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
+	transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
+	opacity: 1;
 }
 
 td:active {
@@ -470,12 +466,10 @@ input, button {
 	background-color: #3333ff;
 }
 
-@media (hover:hover) {
-	input:hover {
-		opacity: 1;
-		-webkit-transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
-		transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
-	}
+input:hover {
+	opacity: 1;
+	-webkit-transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
+	transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
 }
 
 input:focus {
