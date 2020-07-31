@@ -195,6 +195,7 @@ button::-moz-focus-inner {
 	opacity: 0.6;
 	background-color: #e46401;
 }
+
 @media (hover:hover) and (pointer:fine) {
 	#resetGameButton:hover {
 		opacity: 1;
@@ -211,6 +212,7 @@ button::-moz-focus-inner {
 	opacity: 0.6;
 	background-color: #e6001f;
 }
+
 @media (hover:hover) and (pointer:fine) {
 	#endGameButton:hover {
 		opacity: 1;
@@ -359,7 +361,8 @@ button::-moz-focus-inner {
 	margin-right: 2%;
 	background-color: #0080ff;
 }
-@media (hover:hover) and (pointer:fine) {
+
+@media (hover:hover) and (pointer: fine) {
 	.menuButton:hover {
 		background-color: #1a8cff;
 	}
@@ -374,6 +377,7 @@ button::-moz-focus-inner {
 }
 
 .popUpOverlay {
+	cursor: pointer;
 	position: fixed;
 	z-index: 2;
 	top: 0;
@@ -411,6 +415,7 @@ button::-moz-focus-inner {
 	opacity: 0.5;
 	background-color: #e6001f;
 }
+
 @media (hover:hover) and (pointer:fine) {
 	.gameBoxSelected:hover {
 		background-color: #f2001f;
@@ -437,6 +442,7 @@ td {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+
 @media (hover:hover) and (pointer:fine) {
 	td:hover {
 		-webkit-transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
@@ -464,13 +470,13 @@ input, button {
 	opacity: 0.7;
 	background-color: #3333ff;
 }
-@media (hover:hover) and (pointer:fine) {
-	input:hover {
-		opacity: 1;
-		-webkit-transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
-		transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
-	}
+
+input:hover {
+	opacity: 1;
+	-webkit-transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
+	transform: scale3d(var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced), var(--scaling-factor-increase-reduced));
 }
+
 
 input:focus {
 	opacity: 1;
